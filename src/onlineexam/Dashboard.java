@@ -2,12 +2,15 @@ package onlineexam;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 
 public class Dashboard extends JFrame {
     private String username;
+    private Map<String, String> userDatabase;
 
-    public Dashboard(String username) {
+    public Dashboard(String username, Map<String, String> userDatabase) {
         this.username = username;
+        this.userDatabase = userDatabase;
 
         setTitle("Dashboard - Welcome, " + username);
         setSize(450, 350);
@@ -40,9 +43,9 @@ public class Dashboard extends JFrame {
 
         add(mainPanel, BorderLayout.CENTER);
 
-        updateProfileButton.addActionListener(e -> new ProfileUpdate(username));
-        changePasswordButton.addActionListener(e -> new ChangePassword(username));
-        startExamButton.addActionListener(e -> new ExamSession(username));
+        updateProfileButton.addActionListener(e -> new ProfileUpdate(username, userDatabase));
+        changePasswordButton.addActionListener(e -> new ChangePassword(username, userDatabase));
+        startExamButton.addActionListener(e -> new ExamSession(username,userDatabase));
         logoutButton.addActionListener(e -> logout());
 
         setVisible(true);

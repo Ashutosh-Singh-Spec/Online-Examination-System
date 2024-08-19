@@ -1,4 +1,3 @@
-//This is the main(Launcher class) of this project
 package onlineexam;
 import javax.swing.*;
 import java.awt.*;
@@ -77,7 +76,7 @@ public class OnlineExaminationSystem extends JFrame {
 
     private void openDashboard() {
         dispose();
-        new Dashboard(currentUser);
+        new Dashboard(currentUser,userDatabase);
     }
 
     public static void main(String[] args) {

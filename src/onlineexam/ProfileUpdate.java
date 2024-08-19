@@ -8,7 +8,7 @@ public class ProfileUpdate extends JFrame {
     private String username;
     private Map<String, String> userDatabase;
 
-    public ProfileUpdate(String username) {
+    public ProfileUpdate(String username, Map<String, String> userDatabase) {
         this.username = username;
         this.userDatabase = userDatabase;
 
@@ -23,16 +23,20 @@ public class ProfileUpdate extends JFrame {
 
         add(nameLabel);
         add(nameField);
-        add(new JLabel());
+        add(new JLabel()); // Empty placeholder
         add(updateButton);
 
         updateButton.addActionListener(e -> {
             String newUsername = nameField.getText();
-            String currentPassword = userDatabase.get(username);
-            userDatabase.remove(username);
-            userDatabase.put(newUsername, currentPassword);
-            JOptionPane.showMessageDialog(null, "Profile updated successfully!");
-            dispose();
+            if (!newUsername.isEmpty() && !newUsername.equals(username)) {
+                String currentPassword = userDatabase.get(username);
+                userDatabase.remove(username);
+                userDatabase.put(newUsername, currentPassword);
+                JOptionPane.showMessageDialog(null, "Profile updated successfully!");
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Please enter a valid username.");
+            }
         });
 
         setVisible(true);

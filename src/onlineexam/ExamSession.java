@@ -2,6 +2,7 @@ package onlineexam;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,20 +10,26 @@ public class ExamSession extends JFrame {
     private String username;
     private int timeLeft = 120;
     private Timer timer;
+    private Map<String, String> userDatabase;
 
-    public ExamSession(String username) {
+    public ExamSession(String username, Map<String, String> userDatabase) {
         this.username = username;
+        this.userDatabase = userDatabase;
+
         setTitle("Exam Session - " + username);
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         JLabel timerLabel = new JLabel("Time left: " + timeLeft + " seconds");
         topPanel.add(timerLabel);
         add(topPanel, BorderLayout.NORTH);
+
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+
         JLabel questionLabel1 = new JLabel("Which method is called to start a thread in Java?");
         JRadioButton option1_1 = new JRadioButton("Run");
         JRadioButton option1_2 = new JRadioButton("Execute");
@@ -40,6 +47,7 @@ public class ExamSession extends JFrame {
         questionPanel1.add(option1_1);
         questionPanel1.add(option1_2);
         questionPanel1.add(option1_3);
+
         JLabel questionLabel2 = new JLabel("What is the default value of a boolean variable in Java?");
         JRadioButton option2_1 = new JRadioButton("True");
         JRadioButton option2_2 = new JRadioButton("False");
@@ -57,6 +65,7 @@ public class ExamSession extends JFrame {
         questionPanel2.add(option2_1);
         questionPanel2.add(option2_2);
         questionPanel2.add(option2_3);
+
         JLabel questionLabel3 = new JLabel("Which keyword is used to inherit a class in Java?");
         JRadioButton option3_1 = new JRadioButton("super");
         JRadioButton option3_2 = new JRadioButton("this");
@@ -74,6 +83,7 @@ public class ExamSession extends JFrame {
         questionPanel3.add(option3_1);
         questionPanel3.add(option3_2);
         questionPanel3.add(option3_3);
+
         JLabel questionLabel4 = new JLabel("Which package is automatically imported in every Java program?");
         JRadioButton option4_1 = new JRadioButton("java.util");
         JRadioButton option4_2 = new JRadioButton("java.lang");
@@ -91,6 +101,7 @@ public class ExamSession extends JFrame {
         questionPanel4.add(option4_1);
         questionPanel4.add(option4_2);
         questionPanel4.add(option4_3);
+
         mainPanel.add(questionPanel1);
         mainPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         mainPanel.add(questionPanel2);
@@ -99,7 +110,9 @@ public class ExamSession extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         mainPanel.add(questionPanel4);
         mainPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+
         add(mainPanel, BorderLayout.CENTER);
+
         JPanel bottomPanel = new JPanel();
         JButton submitButton = new JButton("Submit");
         bottomPanel.add(submitButton);
@@ -110,6 +123,7 @@ public class ExamSession extends JFrame {
 
         setVisible(true);
     }
+
     private void startTimer(JLabel timerLabel) {
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -123,10 +137,11 @@ public class ExamSession extends JFrame {
             }
         }, 0, 1000);
     }
+
     private void submitExam() {
         timer.cancel();
         JOptionPane.showMessageDialog(null, "Exam submitted!");
         dispose();
-        new Dashboard(username);
+        new Dashboard(username, userDatabase); // Pass userDatabase to Dashboard
     }
 }
