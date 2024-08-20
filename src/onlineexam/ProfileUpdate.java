@@ -6,10 +6,12 @@ import java.util.Map;
 
 public class ProfileUpdate extends JFrame {
     private String username;
+    private String updatedUsername;
     private Map<String, String> userDatabase;
 
     public ProfileUpdate(String username, Map<String, String> userDatabase) {
         this.username = username;
+        this.updatedUsername = username;
         this.userDatabase = userDatabase;
 
         setTitle("Update Profile - " + username);
@@ -23,7 +25,7 @@ public class ProfileUpdate extends JFrame {
 
         add(nameLabel);
         add(nameField);
-        add(new JLabel()); // Empty placeholder
+        add(new JLabel());
         add(updateButton);
 
         updateButton.addActionListener(e -> {
@@ -32,6 +34,7 @@ public class ProfileUpdate extends JFrame {
                 String currentPassword = userDatabase.get(username);
                 userDatabase.remove(username);
                 userDatabase.put(newUsername, currentPassword);
+                updatedUsername = newUsername;
                 JOptionPane.showMessageDialog(null, "Profile updated successfully!");
                 dispose();
             } else {
@@ -40,5 +43,9 @@ public class ProfileUpdate extends JFrame {
         });
 
         setVisible(true);
+    }
+
+    public String getUpdatedUsername() {
+        return updatedUsername;
     }
 }

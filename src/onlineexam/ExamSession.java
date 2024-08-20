@@ -1,5 +1,4 @@
 package onlineexam;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
@@ -142,6 +141,6 @@ public class ExamSession extends JFrame {
         timer.cancel();
         JOptionPane.showMessageDialog(null, "Exam submitted!");
         dispose();
-        new Dashboard(username, userDatabase); // Pass userDatabase to Dashboard
+        new Dashboard(username, userDatabase); 
     }
 }

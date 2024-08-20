@@ -11,9 +11,9 @@ public class OnlineExaminationSystem extends JFrame {
     private String currentUser;
 
     public OnlineExaminationSystem() {
-        userDatabase.put("Sachin", "123");
-        userDatabase.put("CodingLover", "Bunge@12345");
-        userDatabase.put("Ashutosh", "Ashu@2004");
+        userDatabase.put("sachin","123");
+        userDatabase.put("coding_lover","bunge@12345");
+        userDatabase.put("ashutosh","ashu@2004");
 
         setTitle("Online Examination System");
         setSize(450, 250);
