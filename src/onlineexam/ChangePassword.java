@@ -1,5 +1,4 @@
 package onlineexam;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
@@ -42,7 +41,6 @@ public class ChangePassword extends JFrame {
             String newPassword = new String(newPasswordField.getPassword());
             String confirmPassword = new String(confirmPasswordField.getPassword());
 
-            // Handle the potential null value when getting the user's current password
             String storedPassword = userDatabase.get(username);
             if (storedPassword == null) {
                 JOptionPane.showMessageDialog(this, "User does not exist!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -55,7 +53,7 @@ public class ChangePassword extends JFrame {
                 userDatabase.put(username, newPassword);
                 JOptionPane.showMessageDialog(this, "Password changed successfully!");
                 dispose();
-                new Dashboard(username, userDatabase); // Go back to Dashboard
+                new Dashboard(username, userDatabase);
             }
         });
 
