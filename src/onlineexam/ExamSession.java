@@ -141,6 +141,6 @@ public class ExamSession extends JFrame {
         timer.cancel();
         JOptionPane.showMessageDialog(null, "Exam submitted!");
         dispose();
-        new Dashboard(username, userDatabase); 
+        new Dashboard(username, userDatabase);
     }
 }
