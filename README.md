@@ -45,21 +45,19 @@ src/
 
 ## Screenshots
 ### Login Page
-![Login Page](path/to/login_screenshot.png)
+![Login png](https://github.com/user-attachments/assets/488b278a-5169-4839-8559-4eeca0c28a48)
 
-### Change Password
-![Change Password](path/to/change_password_screenshot.png)
+### Dashboard Page
+![dashboard png](https://github.com/user-attachments/assets/40d5d7fd-9d6f-4c71-a2bb-07e800ca618f)
+
 
 ### Exam Session
-![Exam Session](path/to/exam_session_screenshot.png)
+![Screenshot 2025-01-24 122217](https://github.com/user-attachments/assets/79354909-1f5f-4f27-9f45-81c4171d07ff)
 
-### Profile Update
-![Profile Update](path/to/profile_update_screenshot.png)
 
 ### Logout
-![Logout](path/to/logout_screenshot.png)
+![Screenshot 2025-01-24 124400](https://github.com/user-attachments/assets/9615eef9-d261-4678-a2be-a074f1728e4d)
 
-> Replace `path/to/your_screenshot.png` with the actual paths to the screenshots.
 
 ---
 
@@ -70,7 +68,7 @@ src/
    ```
 2. Open the project in **IntelliJ IDEA** or any Java IDE.
 3. Ensure the required dependencies are installed.
-4. Run the `Main.java` file to launch the application.
+4. Run the `OnlineExaminationSystem.java` file to launch the application.
 
 ---
 
@@ -81,15 +79,9 @@ src/
 
 ---
 
-## License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## Contact
 For any queries or suggestions, feel free to reach out to me:
 
 - **Name:** Ashutosh Singh
-- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
-- **Email:** your.email@example.com
+- **Email:** ashusuryavansi143@gmail.com
 
